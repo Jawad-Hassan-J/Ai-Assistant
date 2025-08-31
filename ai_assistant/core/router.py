@@ -157,4 +157,6 @@ def execute(user_text, user_file=None, threshold=0.50):
     
     ## اهني بيسوي رن للفنشكن
     # كل فنكشن تاخذ  نفس البراميتر
+    # print("this is value of function", func(user_text, user_file))
     return func(user_text, user_file)
+

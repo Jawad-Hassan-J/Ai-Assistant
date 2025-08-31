@@ -138,4 +138,8 @@ def object_detection(user_input_request=None, user_input_file=None):
     # decode("utf-8"): convert to string
     """
     image_base64 = base64.b64encode(image_bytes).decode("utf-8")
+    
+    ## Test
+    # return(image_base64)
+    
     return {"type": "image", "value": image_base64}

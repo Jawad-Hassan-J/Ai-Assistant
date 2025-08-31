@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin  
 from .router import execute
 
+from django.views.decorators.csrf import csrf_exempt
+
 def home(request):
     return render(request, 'home.html')
 
@@ -26,7 +28,8 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
-@login_required
+# @login_required
+@csrf_exempt
 def plutonium(request):
     result = None
     user_input_request = request.POST.get("user_input_request", "")
@@ -40,9 +43,5 @@ def plutonium(request):
         "user_input_file": user_input_file,
         "result": result
     })
-
-
-
-
 
 
