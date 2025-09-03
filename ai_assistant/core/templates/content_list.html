@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="page">
+    <div class="container">
+      <h1>Contents</h1>
+
+      <div class="list">
+        {% for item in contents %}
+          <a class="card" href="{% url 'content_detail' item.id %}">
+            <h3>{{ item.title }}</h3>
+            <p class="meta">by {{ item.user.username }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

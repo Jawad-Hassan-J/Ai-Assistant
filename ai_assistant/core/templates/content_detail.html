@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="page">
+    <div class="actions">
+      <a href="{% url 'content_list' %}">Back</a>
+      {% if user == content.user %}
+        <a href="{% url 'content_update' pk=content.id %}">Edit</a>
+        <a href="{% url 'content_delete' pk=content.id %}">Delete</a>
+      {% endif %}
+    </div>
+
+    <h1>{{ content.title }}</h1>
+    <h2>{{ content.user.username }}</h2>
+    <p class="lang">Language: {{ content.language }}</p>
+
+    <article class="body">
+      {{ content.content }}
+    </article>
+  </div>
+{% endblock %}

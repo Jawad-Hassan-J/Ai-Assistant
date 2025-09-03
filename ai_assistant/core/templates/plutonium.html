@@ -1,54 +1,35 @@
-<!DOCTYPE html>
-<html lang="ar">
-  <head>
-    <meta charset="UTF-8" />
-    <title>AI Assistant</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'core/style.css' %}" />
-  </head>
-  <body>
-     {% include "navbar.html" %}
-    <div class="chat-container">
-      <div class="chat-box">
+{% extends "plutonium_base.html" %}
 
-        {% if user_input_request %}
-        <div class="message user">{{ user_input_request }}</div>
-        {% endif %} 
-        
-        {% if result %}
-          {% if result.type == "image" %}
-          {% comment %} 
-            Data url
-            data: يعني البيانات موجودة محليا
-            image: MIME type يعني الداتا هذي تخص صورة 
-            لو كان صوت بينكتب voice
-            
-            jpeg: صيغة الصورة الي هي jpeg
-            base64: البيانات هذي مكتوبة بصيفة base64
-
-          {% endcomment %}
-            <img class="bot-image" src="data:image/jpeg;base64,{{ result.value }}" />
-          {% else %}
-            <div class="message bot">
-              {{ result }}
-            </div>
+{% block content %}
+  <div class="chat-container">
+    <div class="chat-box">
+      {% if logs %}
+        {% for item in logs %}
+          {% if item.user_input_file_base64 %}
+            <img class="user-image" src="data:image/jpeg;base64,{{ item.user_input_file_base64 }}">
           {% endif %}
-        {% endif %}
+          <div class="message user">{{ item.user_input_request }}</div>
+          {% if item.server_response_text %}
+            <div class="message bot">{{ item.server_response_text }}</div>
+          {% endif %}
+          {% if item.server_response_file_base64 %}
+            <img class="bot-image" src="data:image/jpeg;base64,{{ item.server_response_file_base64 }}">
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
 
-    </div>
-        
-      <form method="POST" enctype="multipart/form-data" class="input-bar">
-        {% csrf_token %}
-        <input
-          type="text"
-          name="user_input_request"
-          placeholder="Ask here"
-          required
-        />
-        <label for="user_input_file" class="custom-file-upload">📎</label>
-        <input id="user_input_file" type="file" name="user_input_file" />
-        <button type="submit" class="submit-btn">⬆</button>
-      </form>
-    </div>
-  </body>
-</html>
+    <form method="POST" enctype="multipart/form-data" class="input-bar">
+      {% csrf_token %}
+      <input type="text" name="user_input_request" placeholder="Ask here" required>
+      <label for="user_input_file" class="custom-file-upload">📎</label>
+      <input id="user_input_file" type="file" name="user_input_file">
+      <button type="submit" class="submit-btn">⬆</button>
+    </form>
+  </div>
+
+  <script>
+    const chatBox = document.querySelector('.chat-box');
+    chatBox.scrollTop = chatBox.scrollHeight;
+  </script>
+{% endblock %}

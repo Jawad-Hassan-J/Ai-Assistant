@@ -1,22 +1,22 @@
-<div class="navbar">
-  <div class="container">
+<nav class="nav-wrapper ai-nav">
+  <div class="nav-inner">
     <div class="brand">AI Assistant</div>
+
     <div class="links">
-      <a href="{% url 'plutonium' %}">plutonium</a>
-      <a href="#">Explore</a>
-      <a href="#">profile</a>
+      <a href="{% url 'plutonium' %}">Plutonium</a>
+      <a href="{% url 'content_list' %}">Explore</a>
+      <a href="{% url 'profile' %}">Profile</a>
+      <a href="{% url 'content_create' %}">Add Tool</a>
+
       {% if user.is_authenticated %}
-      
-        <form action="{% url 'logout' %}" method="post">
+        <form action="{% url 'logout' %}" method="post" class="logout-form">
           {% csrf_token %}
           <button type="submit">Logout</button>
         </form>
-      
-
       {% else %}
-      <li><a href="{% url 'signup' %}">Signup</a></li>
-      <li><a href="{% url 'login' %}">Login</a></li>
+        <a href="{% url 'signup' %}">Signup</a>
+        <a href="{% url 'login' %}">Login</a>
       {% endif %}
     </div>
   </div>
-</div>
+</nav>

@@ -81,7 +81,9 @@ def image_to_text(user_input_request=None, user_input_file=None):
         processed_img = processed_img.filter(ImageFilter.MedianFilter(size=3))
         
         
-
+        # OCR Engine Mode
+        # -- oem 3 for algorithm 3 mean auto
+        # --psm 6: شكل النص هل هو فقرات او فقرة
         config = r'--oem 3 --psm 6'
         text = pytesseract.image_to_string(processed_img, lang="eng", config=config)
         

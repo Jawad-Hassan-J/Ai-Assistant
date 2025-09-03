@@ -86,7 +86,7 @@ def object_detection(user_input_request=None, user_input_file=None):
             cv2.rectangle(image, (x1,y1), (x2,y2), (0,255,0), 2)
 
             """
-            # putText(image,text, startLocation, font_family, color, font_size): دالة مدمحة تكتب كلام على الصورة
+            # putText(image,text, startLocation, font_family, font_size ,color, font_thickness): دالة مدمحة تكتب كلام على الصورة
             #image: الصورة الي تبغاها
             # text: النص
             في حالتنا النص مع نسبة الثقة بشكل عشري
@@ -96,10 +96,10 @@ def object_detection(user_input_request=None, user_input_file=None):
             # color: لون الخط
             # font_size: حجم الخط
             """
-            cv2.putText(image,f"{label} {conf:.2f}",(x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX,0.5, (0,255,0), 3)
+            cv2.putText(image,f"{label} {conf:.2f}",(x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX,0.9, (0,255,0), 3)
 
             # نطبع الاشياء الي اكتشفها المودل في التيرنيمال
-            print(f"Detected {label} with confidence {conf:.2f} at [{x1},{y1},{x2},{y2}]")
+            # print(f"Detected {label} with confidence {conf:.2f} at [{x1},{y1},{x2},{y2}]")
 
 
     # overwiter للصورة القديمة بالصورة الجديدة
@@ -143,3 +143,4 @@ def object_detection(user_input_request=None, user_input_file=None):
     # return(image_base64)
     
     return {"type": "image", "value": image_base64}
+

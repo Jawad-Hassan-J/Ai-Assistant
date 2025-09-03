@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assistant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="{% static 'core/style.css' %}">
+</head>
+<body>
+  <header class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="{% url 'plutonium' %}" class="brand-logo">&nbsp;&nbsp;AI Assistant</a>
+        <ul id="nav-mobile" class="right">
+          <li><a href="{% url 'plutonium' %}">Plutonium</a></li>
+          <li><a href="{% url 'content_list' %}">Explore</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'content_create' %}">Add Tool</a></li>
+             <li>
+              <a>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="btn-flat white-text">Logout</button>
+                </form>
+              </a>
+            </li>
+          {% else %}
+            <li><a href="{% url 'signup' %}">Signup</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="page-footer">
+    <div class="right">All Rights Reserved, &copy; 2025 AI Assistant &nbsp;</div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

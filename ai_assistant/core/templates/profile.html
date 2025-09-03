@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="page">
+    <div class="container">
+      <h1>My Contents</h1>
+
+      <div class="list">
+        {% for item in contents %}
+          <a class="card" href="{% url 'content_detail' item.id %}">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.content|truncatewords:20 }}</p>
+          </a>
+        {% empty %}
+          <p class="empty">No contents yet.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

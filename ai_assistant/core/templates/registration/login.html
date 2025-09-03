@@ -1,17 +1,17 @@
-{% extends 'registration_form.html' %}
-
-{% block title %}Login{% endblock %}
+{% extends 'base.html' %}
 
 {% block content %}
-  <h1>Login</h1>
+  <div class="auth-container">
+    <h1>Login</h1>
 
-  {% if form.errors %}
-    <p class="red-text">Invalid username or password</p>
-  {% endif %}
+    {% if form.errors %}
+      <p class="error">Invalid username or password</p>
+    {% endif %}
 
-  <form action="{% url 'login' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn" value="Login">
-  </form>
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" class="btn" value="Login">
+    </form>
+  </div>
 {% endblock %}
