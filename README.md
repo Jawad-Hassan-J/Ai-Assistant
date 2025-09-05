@@ -1,9 +1,11 @@
+<img src="./media/plutoiuom.png" alt="logo" height="80"/>
+
 # Ai-Assistant
 
 ## [Deploy Link](#)
 
+# **Ai Assistant Plutonium** 
 
-# **AI Assistant Plutonium**
 
 ### **Plutonium** Plutonium is user-friendly for performing tasks, and developer-friendly for adding new functions, the structure and how everything integrates is designed so developers can easily add functions and new features.
 
@@ -70,3 +72,14 @@
 ### Make the system flexible to read/handle any type of input (e.g. voice, video).
 ### Discover and add more tools 
 
+## Resources
+#### [YOLO](https://docs.ultralytics.com/tasks/detect/)
+#### [pytesseract](https://pypi.org/project/pytesseract/)
+#### [Python Tutorials for Digital Humanities](https://www.youtube.com/watch?v=tQGgGY8mTP0&list=PL2VXyKi-KpYuTAZz__9KVl1jQz74bDG7i)
+#### [SentenceTransformer](https://www.sbert.net/)
+#### [Edje Electronics](https://youtu.be/r0RspiLG260?si=x_PaC4_akxAKhE4z)
+#### [How YOLO Object Detection Works](https://youtu.be/svn9-xV7wjk?si=1oGLUHvlfO0oRfEu)
+#### [ProgrammingKnowledge](https://www.youtube.com/watch?v=9nUNPrvCFAE&list=PLHgvmbajt-ByUdTiXe3Epzm1k2TIZAesg)
+#### [Nicholas Renotte](https://www.youtube.com/@NicholasRenotte)
+#### [Vizuara](https://youtu.be/lcArnTfpPBM?si=EhY_bgx-kUC61Q5e)
+#### [codebasics](https://youtu.be/IfRMV2MY9n0?si=i_Mvo39cDSAf3KXo)
