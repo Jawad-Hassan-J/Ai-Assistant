@@ -21,13 +21,13 @@
 ### ![](./media/OCR.png)
 
 ## Object detection 
-### ![](./media/object%20detection.jpeg)
+### ![](./media/object-detection.jpeg)
 <br><br><br>
 
 ## Screen Shot from app
 ### ![ِ](./media/app.png)
-### ![](./media/image%20to%20text.png)
-### ![](./media/object%20detection.png)
+### ![](./media/image-to-text.png)
+### ![](./media/chat-object%20detection.png)
 
 ## Technology used
 
@@ -66,5 +66,7 @@
 #### import the function first
 #### then in FUNCTION_MAP add function name and location
 
-
+## Future enhancements 
+### Make the system flexible to read/handle any type of input (e.g. voice, video).
+### Discover and add more tools 
 
